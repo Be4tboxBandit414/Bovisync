@@ -6,13 +6,14 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
 function App() {
+  // state
   const [isLoading, setLoading] = useState(true);
   const [animalData, setAnimalData] = useState()
   const [itemData, setItemData] = useState()
   const [pageData, setPageData] = useState()
-
   const [show, setShow] = useState(false);
 
+  // on mount, app fetches from APIs
   useEffect(() => {
     fetch("https://bovisync.bitbucket.io/sample_data/animal_data.json")
     .then(res => res.json())
@@ -35,6 +36,7 @@ function App() {
     })
   }, [])
 
+  // handles Modal show and hide
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
